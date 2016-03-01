@@ -1,0 +1,28 @@
+{
+  "name": "pizza-express",
+  "version": "1.0.0",
+  "description": "A place to admire pizzas",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patwey/pizza-express.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Pat Wey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patwey/pizza-express/issues"
+  },
+  "homepage": "https://github.com/patwey/pizza-express#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
