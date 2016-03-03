@@ -1,6 +1,7 @@
 const assert = require('assert');
 const app = require('../server');
 const request = require('request');
+const fixtures = require('./fixtures');
 
 describe('Server', () => {
   before(done => {
@@ -47,6 +48,9 @@ describe('Server', () => {
   });
 
   describe('POST /', () => {
+    beforeEach(() => {
+      app.locals.pizzas = {};
+    });
 
     it('should not return 404', (done) => {
       this.request.post('/pizzas', (error, response) => {
@@ -57,8 +61,17 @@ describe('Server', () => {
     });
 
     it('should receive and store data', (done) => {
-      assert(true);
-      done();
+      var payload = { pizza: fixtures.validPizza };
+
+      this.request.post('/pizzas', { form: payload }, (error, response) => {
+        if (error) { done(error); }
+
+        var pizzaCount = Object.keys(app.locals.pizzas).length;
+
+        assert.equal(pizzaCount, 1, `Expected 1 pizzas, found ${pizzaCount}`);
+
+        done();
+      });
     });
 
   });
